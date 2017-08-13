@@ -1,4 +1,4 @@
-import './assets/index.html'
+import './index.html'
 
 import Vue from 'vue'
 import 'vue-material/dist/vue-material.css'
