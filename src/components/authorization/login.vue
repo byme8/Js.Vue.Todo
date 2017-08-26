@@ -12,8 +12,8 @@
                     <input v-model="password" type="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <button type="button" @click="doLogin()" class="btn btn-raised">Login</button>
-                    <button type="button" @click="doSingUp()" class="btn btn-raised btn-info">Sing up</button>
+                    <button type="button" @click="doLogin()" class="btn">Login</button>
+                    <button type="button" @click="doSingUp()" class="btn btn-info">Sing up</button>
                 </div>
             </form>
         </div>
