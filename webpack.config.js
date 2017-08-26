@@ -37,6 +37,24 @@ module.exports = {
                 test: /\.vue$/,
                 use: ['vue-loader']
             },
+            {
+                test: /(.svg|.eot)/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'images/[name].[ext]'
+                    }
+                }
+            },
+            {
+                test: /(.ttf|.woff|.woff2)/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[ext]'
+                    }
+                }
+            }
         ]
     },
     plugins: [
