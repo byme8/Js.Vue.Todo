@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "dev-server": "webpack-dev-server --inline --hot --content-base build/"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +13,8 @@
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
     "jquery": "^3.2.1",
-    "vue": "^2.4.2"
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -24,6 +26,7 @@
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.5.4",
+    "webpack-dev-server": "^2.7.1",
     "webpack-require-from": "^1.0.1"
   }
 }

@@ -42,7 +42,10 @@ export default {
             const user = authorization.authorize(this.login, this.password)
             if (!user) {
                 this.errors.push('Such user is missing')
+                return
             }
+
+            this.$router.push('home')
         },
         doSingUp: function() {
             this.errors = []

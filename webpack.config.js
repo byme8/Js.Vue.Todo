@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve('build'),
         filename: "bundle.js",
-        publicPath: 'build'
+        publicPath: '/build/'
     },
     devtool: "source-map",
     module: {
@@ -60,5 +60,6 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('bundle.css'),
         new webpack.ProvidePlugin({ 'jQuery': 'jquery' }),
+        new webpack.ProvidePlugin({ 'material': 'bootstrap-material-design' }),
     ]
 }

@@ -1,22 +1,12 @@
 <template>
     <div class="container">
-        <login />
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import login from '../components/authorization/login.vue'
+import router from './../router'
 
 export default {
-    data: {
-        message: 'hello'
-    },
-    methods: {
-        onClick: function () {
-            window.alert(this.message)
-        }
-    },
-    components: {
-        'login': login
-    }
+    router: router
 }
 </script>

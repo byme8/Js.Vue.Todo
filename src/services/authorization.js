@@ -9,12 +9,19 @@ var data = [
     }
 ]
 
-export default
-{
-    authorize: function (login, password) 
-    {
-        return data.find(o => 
-            o.login == login && 
-            o.password == password)       
+export default {
+    user: null,
+    authorize: function (login, password) {
+        this.user = data.find(o =>
+            o.login == login &&
+            o.password == password);
+
+        return this.user
+    },
+    loggedIn: function () {
+        if (this.user) {
+            return true
+        }
+        return false;
     }
 }
