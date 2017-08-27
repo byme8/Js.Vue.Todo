@@ -1,13 +1,17 @@
 <template>
     <div class="container login-container">
         <div class="jumbotron login">
-            <button class="btn">Home</button>
+            <button @click="goHome()" class="btn">Home</button>
         </div>
     </div>
 </template>
 <script>
 export default {
-
+    methods:{
+        goHome: function () {
+            this.$router.push('home')
+        }
+    }
 }
 </script>
 

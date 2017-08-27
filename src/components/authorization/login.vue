@@ -45,7 +45,7 @@ export default {
                 return
             }
 
-            this.$router.push('home')
+            this.$router.push(this.$route.query.redirect)
         },
         doSingUp: function() {
             this.errors = []
