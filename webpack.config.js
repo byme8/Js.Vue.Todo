@@ -38,7 +38,7 @@ module.exports = {
                 use: ['vue-loader']
             },
             {
-                test: /(.svg|.eot)/,
+                test: /(.svg|.eot|.png)/,
                 use: {
                     loader: 'file-loader',
                     options: {
