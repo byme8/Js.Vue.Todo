@@ -13,14 +13,12 @@
     </div>
 </template>
 <script>
-import Enumerable from 'linq'
 import Vue from 'vue'
 import auth from './../services/authorization'
 import todoService from './../services/todosService'
 import todoItem from './todos/todoItem.vue'
 
 export default {
-
     data: function() {
         return {
             userName: auth.user.login,

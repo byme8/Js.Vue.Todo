@@ -11,8 +11,6 @@ import $ from 'jquery'
 import Vue from 'vue'
 import App from './app/app.vue'
 
-window.jquery = $
-
 $.material.init()
 
 new Vue(App).$mount('#app')
