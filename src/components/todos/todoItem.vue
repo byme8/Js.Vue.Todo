@@ -3,15 +3,15 @@
         <div class="panel-heading todo-item-header">
             <input type="checkbox" class="form-control" v-model="isDone" />
             <div>
-                <input v-if="editing" class="form-control" type="text" placeholder="Name" v-model="title" />
-                <label class="default-font" v-else>{{title}}</label>
+                <input v-if="editing" class="form-control todo-item-editor" type="text" placeholder="Name" v-model="title" />
+                <label class="default-font todo-item-label" v-else>{{title}}</label>
             </div>
             <button class="transparent" @click="toggleEditing()">
                 &#x270E;
             </button>
         </div>
         <div v-if="description || editing" class="panel-body">
-            <input v-if="editing" type="text" placeholder="Description" v-model="description" />
+            <input v-if="editing" class="form-control todo-item-editor" type="text" placeholder="Description" v-model="description" />
             <label class="default-font" v-else>{{description}}</label>
         </div>
     </div>
@@ -40,8 +40,11 @@ export default {
 <style scoped>
 .default-font {
     color: black;
-    vertical-align: center;
     font-size: 16;
+}
+
+.todo-item-editor {
+    margin-top: -8px;
 }
 
 .todo-item-grid {
