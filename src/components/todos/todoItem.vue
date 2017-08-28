@@ -1,5 +1,5 @@
 <template>
-    <div class="panel panel-info todo-item-grid">
+    <div v-bind:class="{ 'panel-success': isDone}" class="panel todo-item-grid">
         <div class="panel-heading todo-item-header">
             <input type="checkbox" class="form-control" v-model="isDone" />
             <div>
