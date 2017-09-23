@@ -5,6 +5,8 @@
                 <todoItem :todoItem="todo"></todoItem>
             </li>
         </ul>
+        <input v-model="newTodoTitle" />
+        <button class="waves-effect waves-teal btn-flat" @click="newTodo()">Add new todo</button>
     </div>
 </template>
 <script>
@@ -16,12 +18,20 @@ import todoItem from './todos/todoItem.vue'
 export default {
     data: function() {
         return {
-            userName: auth.currentUser.value.login,
-            todos: todoService.todos
+            todos: todoService.todos,
+            newTodoTitle: ''
         }
     },
 
-    goHome: () => this.$router.push('home'),
+    methods:{
+        newTodo: function ()
+        {
+            todoService.addTodo(this.newTodoTitle)
+            this.todos = todoService.todos
+
+            this.newTodoTitle = ''
+        }
+    },
 
     components: {
         'todoItem': todoItem
@@ -30,5 +40,8 @@ export default {
 </script>
 
 <style scoped>
-
+.todo-item{
+    display: flex;
+    flex-direction: row;
+}
 </style>
