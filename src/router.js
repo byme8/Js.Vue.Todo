@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Auth from './services/authorization'
-import Home from './components/home.vue'
+
+import HelloView from './components/helloView.vue'
+import ItemView from './components/itemsView.vue'
 import Login from './components/authorization/login.vue'
 
 Vue.use(VueRouter)
@@ -21,8 +23,8 @@ export default new VueRouter({
     mode: 'history',
     base: __dirname,
     routes: [
-        { path: '/', component: Home, beforeEnter: requireAuth },
-        { path: '/home', component: Home, beforeEnter: requireAuth },
+        { path: '/', component: HelloView },
+        { path: '/items', component: ItemView, beforeEnter: requireAuth },
         { path: '/login', component: Login },
     ]
 })

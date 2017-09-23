@@ -45,13 +45,18 @@ export default {
                 return
             }
 
-            const user = authorization.authorize(this.login, this.password)
+            let user = authorization.authorize(this.login, this.password)
             if (!user) {
                 this.errors.push('Such user is missing')
                 return
             }
 
-            this.$router.push(this.$route.query.redirect)
+            if (this.$route.query.redirect) {
+                this.$router.push(this.$route.query.redirect)
+            }
+            else{
+                this.$router.push("/items")
+            }
         },
         doSingUp: function() {
             this.errors = []
