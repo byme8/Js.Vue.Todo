@@ -35,8 +35,8 @@ export default {
 <style scoped>
 .home-container {
     display: grid;
-    grid-template-rows: 20%px 20px 80%;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 1fr auto 7fr;
+    grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas: 
     "....... ....... ......." 
     "....... header ......." 
