@@ -1,19 +1,10 @@
 <template>
-    <div v-bind:class="{ 'panel-success': isDone}" class="panel todo-item-grid">
-        <div class="panel-heading todo-item-header">
-            <input type="checkbox" class="form-control" v-model="isDone" />
-            <div>
-                <input v-if="editing" class="form-control todo-item-editor" type="text" placeholder="Name" v-model="title" />
-                <label class="default-font todo-item-label" v-else>{{title}}</label>
-            </div>
-            <button class="transparent" @click="toggleEditing()">
-                &#x270E;
-            </button>
-        </div>
-        <div v-if="description || editing" class="panel-body">
-            <input v-if="editing" class="form-control todo-item-editor" type="text" placeholder="Description" v-model="description" />
-            <label class="default-font" v-else>{{description}}</label>
-        </div>
+    <div class="todo-item">
+        <input class="check filled-in" v-bind:id="id" type="checkbox" v-model="isDone" />
+        <label class="name" v-bind:for="id"> {{title}}</label>
+        <button class="edit waves-effect waves-teal btn-flat">
+            &#x270E;
+        </button>
     </div>
 </template>
 <script>
@@ -23,49 +14,31 @@ export default {
 
     data: function() {
         return {
+            id: this.todoItem.id,
             title: this.todoItem.title,
             description: this.todoItem.description,
             isDone: this.todoItem.isDone,
-            editing: false
-        }
-    },
-    methods:
-    {
-        toggleEditing: function() {
-            this.editing = !this.editing
         }
     }
 }
 </script>
 <style scoped>
-.default-font {
-    color: black;
-    font-size: 16;
-}
-
-.todo-item-editor {
-    margin-top: -8px;
-}
-
-.todo-item-grid {
-    display: grid;
-    grid-template-rows: 50% 50%;
-}
-
-.todo-item-header {
+.todo-item {
     display: grid;
     grid-template-columns: 10% 80% 10%;
+    grid-template-areas: "check name edit"
 }
 
-.todo-item-description {
-    display: grid;
-    grid-template-columns: 90% 10%;
-    min-height: 10px;
+.check {
+    grid-area: check
 }
 
-.transparent {
-    background-color: transparent;
-    border-color: transparent;
+.name {
+    grid-area: name
+}
+
+.edit {
+    grid-area: edit
 }
 </style>
 

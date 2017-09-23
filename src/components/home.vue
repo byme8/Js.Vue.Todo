@@ -1,14 +1,12 @@
 <template>
     <div class="home-container">
-        <div class="jumbotron home">
-            <label>Hello! {{userName}}</label>
-            <div>
-                <ul class="list-group flex">
-                    <li class="list-group-item" v-for="todo in todos">
-                        <todoItem :todoItem="todo"></todoItem>
-                    </li>
-                </ul>
-            </div>
+        <label class="header">Hello! {{userName}}</label>
+        <div class="items">
+            <ul>
+                <li v-for="todo in todos">
+                    <todoItem :todoItem="todo"></todoItem>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -37,12 +35,19 @@ export default {
 <style scoped>
 .home-container {
     display: grid;
-    grid-template-rows: 20px 80%;
+    grid-template-rows: 20%px 20px 80%;
     grid-template-columns: 10% 80% 10%;
+    grid-template-areas: 
+    "....... ....... ......." 
+    "....... header ......." 
+    "....... items .......";
 }
 
-.home {
-    grid-row: 2/2;
-    grid-column: 2/3;
+.header {
+    grid-area: header;
+}
+
+.items {
+    grid-area: items;
 }
 </style>
