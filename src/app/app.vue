@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <nav class="nav-extended">
+    <div>
+        <nav class="nav-extended tile">
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo">Todo list!</a>
                 <ul class="right">
@@ -8,10 +8,10 @@
                         <div>Hello, {{userName}}!</div>
                     </li>
                     <li v-show="!isUserLogined">
-                        <button class="waves-effect waves-light btn-flat" @click="singIn()">Sing in</button>
+                        <button class="waves-effect waves-light btn-flat navtext" @click="singIn()">Sing in</button>
                     </li>
                     <li v-show="isUserLogined">
-                        <button class="waves-effect waves-light btn-flat" @click="logout()">Logout</button>
+                        <button class="waves-effect waves-light btn-flat navtext" @click="logout()">Logout</button>
                     </li>
                 </ul>
             </div>
@@ -56,3 +56,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+.navtext{
+    color: white
+}
+</style>

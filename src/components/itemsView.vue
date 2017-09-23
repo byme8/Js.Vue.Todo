@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <ul>
             <li v-for="todo in todos">
                 <todoItem :todoItem="todo"></todoItem>
@@ -27,8 +27,6 @@ export default {
         newTodo: function ()
         {
             todoService.addTodo(this.newTodoTitle)
-            this.todos = todoService.todos
-
             this.newTodoTitle = ''
         }
     },

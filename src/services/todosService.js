@@ -39,6 +39,14 @@ export class TodoService {
     {
         this.todos.push(TodoItem.makeTodo(title));
     }
+
+    remove(todoItemId)
+    {
+        let todo = this.todos.find(o => o.id == todoItemId)
+        if (todo) {
+            this.todos.splice(this.todos.indexOf(todo), 1 );
+        }
+    }
 }
 
 
