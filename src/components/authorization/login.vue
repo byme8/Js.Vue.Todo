@@ -1,19 +1,23 @@
 <template>
-    <div class="container login-container">
-        <div class="jumbotron login">
+    <div class="login-container">
+        <div class="login">
             <form>
                 <div v-for="error in errors">
-                    <div class="alert alert-danger">{{error}}</div>
+                    <div class="card red darken-1">
+                        <div class="card-content white-text">
+                            {{error}}
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group label-floating">
-                    <input v-model="login" type="text" class="form-control" placeholder="Login">
+                <div>
+                    <input v-model="login" type="text" placeholder="Login">
                 </div>
-                <div class="form-group label-floating">
-                    <input v-model="password" type="password" class="form-control" placeholder="Password">
+                <div>
+                    <input v-model="password" type="password" placeholder="Password">
                 </div>
-                <div class="form-group">
-                    <button type="button" @click="doLogin()" class="btn">Login</button>
-                    <button type="button" @click="doSingUp()" class="btn btn-info">Sing up</button>
+                <div>
+                    <button class="waves-effect waves-teal btn-flat" type="button" @click="doLogin()">Login</button>
+                    <button class="waves-effect waves-teal btn-flat" type="button" @click="doSingUp()">Sing up</button>
                 </div>
             </form>
         </div>
@@ -23,14 +27,15 @@
 import authorization from '../../services/authorization'
 
 export default {
-    data: function() {
+    data() {
         return {
             login: '',
             password: '',
             errors: []
         }
     },
-    methods: {
+    methods:
+    {
         doLogin: function() {
             this.errors = []
 
@@ -58,14 +63,12 @@ export default {
 <style scoped>
 .login-container {
     display: flex;
-    width: 100%;
-    height: 500;
+    height: 500px;
 }
 
 .login {
-    display: flex;
-    justify-content: center;
     margin: auto;
+    min-width: 300px;
 }
 </style>
 
