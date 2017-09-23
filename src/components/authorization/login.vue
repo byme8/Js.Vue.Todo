@@ -24,6 +24,7 @@
     </div>
 </template>
 <script>
+import 'materialize-css'
 import authorization from '../../services/authorization'
 
 export default {
@@ -54,8 +55,7 @@ export default {
         },
         doSingUp: function() {
             this.errors = []
-
-            window.alert("Sign up " + this.login + " " + this.password)
+            Materialize.toast('Fail...', 1000)
         }
     }
 }
