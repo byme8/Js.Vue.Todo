@@ -1,4 +1,5 @@
 import Rx from 'rxjs'
+import 'materialize-css'
 
 // Only for test!
 function guid() {
@@ -33,6 +34,11 @@ export class TodoService {
         for (var i = 0; i < 10; i++) {
             this.todos.push(new TodoItem(i, 'Title' + i, 'Description' + i, i % 2))
         }
+    }
+
+    update(todoItem)
+    {
+        Materialize.toast('Changes saved for item with id ' + todoItem.id, 1000)
     }
 
     addTodo(title)
