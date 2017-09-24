@@ -19,11 +19,19 @@ function requireAuth(to, from, next) {
     }
 }
 
+function goToItemsIfLogined(to, from, next) {
+    if (Auth.loggedIn()) {
+        next({ path: '/items' })
+    } else {
+        next()
+    }
+}
+
 export default new VueRouter({
     mode: 'history',
     base: __dirname,
     routes: [
-        { path: '/', component: HelloView },
+        { path: '/', component: HelloView, beforeEnter: goToItemsIfLogined },
         { path: '/items', component: ItemView, beforeEnter: requireAuth },
         { path: '/login', component: Login },
     ]

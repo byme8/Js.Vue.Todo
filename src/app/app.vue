@@ -28,9 +28,16 @@ import authorization from '../services/authorization'
 export default {
     router: router,
     data: function() {
+        let userName = '' 
+        let user = authorization.currentUser.value
+        if(user)
+        {
+            userName = user.login
+        }
+
         return {
-            isUserLogined: false,
-            userName: ''
+            isUserLogined: authorization.loggedIn(),
+            userName: userName
         }
     },
     methods:

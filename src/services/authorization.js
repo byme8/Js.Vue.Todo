@@ -1,4 +1,7 @@
 import Rx from 'rxjs'
+import Cookie from 'js-cookie'
+
+const USER = 'user'
 
 export class User {
     constructor(login, password) {
@@ -15,7 +18,10 @@ var users = [
 export class AuthorizationService {
 
     constructor() {
-        this.currentUser = new Rx.BehaviorSubject(null);
+        let user = Cookie.getJSON(USER)
+
+        this.currentUser = new Rx.BehaviorSubject(user);
+        this.currentUser.subscribe(o => Cookie.set(USER, o))
     }
 
     authorize(login, password) {
@@ -36,7 +42,7 @@ export class AuthorizationService {
     }
 
     loggedIn() {
-        if (this.currentUser) {
+        if (this.currentUser.value) {
             return true
         }
         return false;
