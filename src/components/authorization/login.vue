@@ -37,7 +37,7 @@ export default {
     },
     methods:
     {
-        doLogin: function() {
+        doLogin: async function() {
             this.errors = []
 
             if (!this.login || !this.password) {
@@ -45,17 +45,22 @@ export default {
                 return
             }
 
-            let user = authorization.authorize(this.login, this.password)
-            if (!user) {
-                this.errors.push('Such user is missing')
-                return
-            }
+            try {
+                let user = await authorization.authorize(this.login, this.password)
 
-            if (this.$route.query.redirect) {
-                this.$router.push(this.$route.query.redirect)
-            }
-            else{
-                this.$router.push("/items")
+                if (this.$route.query.redirect) {
+                    this.$router.push(this.$route.query.redirect)
+                }
+                else {
+                    this.$router.push("/items")
+                }
+
+            } catch (ex) {
+                let errors = ex.response.data.Errors
+                for (var i = 0; i < errors.length; i++) {
+                    this.errors.push(errors[i])
+
+                }
             }
         },
         doSingUp: function() {

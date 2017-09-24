@@ -1,19 +1,16 @@
 import Rx from 'rxjs'
 import Cookie from 'js-cookie'
+import axios from 'axios'
+import { AUTHORIZATION_API } from '../configs/webservice.config'
 
 const USER = 'user'
 
 export class User {
-    constructor(login, password) {
+    constructor(id, login) {
+        this.id = id
         this.login = login
-        this.password = password
     }
 }
-
-var users = [
-    new User('test1', 'test1'),
-    new User('test2', 'test2')
-]
 
 export class AuthorizationService {
 
@@ -24,20 +21,16 @@ export class AuthorizationService {
         this.currentUser.subscribe(o => Cookie.set(USER, o))
     }
 
-    authorize(login, password) {
-        let user = users.find(o =>
-            o.login == login &&
-            o.password == password)
-
-        if (user) {
-            this.currentUser.next(user);
-        }
+    async authorize(login, password) {
+        let response = await axios.post(AUTHORIZATION_API, { login: login, password: password })
+        
+        let user = new User(response.data.id, response.data.login)
+        this.currentUser.next(user)
 
         return user
     }
 
-    logout()
-    {
+    logout() {
         this.currentUser.next(null)
     }
 
