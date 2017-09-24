@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav class="nav-extended tile">
-            <div class="nav-wrapper">
+        <nav class="nav-extended">
+            <div class="nav-wrapper teal">
                 <a href="/" class="brand-logo">Todo list!</a>
                 <ul class="right">
                     <li v-show="isUserLogined">

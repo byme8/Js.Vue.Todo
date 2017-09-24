@@ -3,12 +3,12 @@
         <input class="check filled-in" v-bind:id="todoItem.id" type="checkbox" v-model="todoItem.isDone" />
         <label class="name" v-bind:for="todoItem.id"> {{todoItem.title}}</label>
         <div class="edit">
-            <button class="waves-effect waves-light btn-floating" @click="edit()">
-                <i class="material-icons right">pencil</i>
-            </button>
-            <button class="waves-effect waves-light btn-floating" @click="remove(todoItem.id)">
-                <i class="material-icons right">cross</i>
-            </button>
+            <span class="btn-floating btn-flat transparent" @click="edit()">
+                <i class="material-icons black-text">edit</i>
+            </span>
+            <span class="btn-floating btn-flat transparent" @click="remove(todoItem.id)">
+                <i class="material-icons red-text">delete</i>
+            </span>
         </div>
     </div>
 </template>
@@ -27,7 +27,6 @@ export default {
             todoService.remove(todoItemId)
         }
     }
-
 }
 </script>
 <style scoped>
