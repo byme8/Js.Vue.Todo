@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+// Tests
+
 module.exports = {
     entry: './src/main.js',
     output: {
